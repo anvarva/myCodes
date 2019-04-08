@@ -11,11 +11,10 @@ from python2matlab_funcs import *
 from matplotlib.widgets import Slider
 
 
-
 t = linspace(0,4,0.02)
 
-L = 1 # half of the period
-n = 1 # number of harmonics
+L = 1  # half of the period
+n = 1  # number of harmonics
 f_x = 0
 for ni in linspace(1,n+1,2):
     f_x = f_x + (4/((ni)*pi)*sin((ni)*pi*t/L))
