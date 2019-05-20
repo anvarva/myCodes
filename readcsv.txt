@@ -1,0 +1,18 @@
+	    geo_list = []
+            with open(self.poi_file) as csv_file:
+                csv_reader = csv.reader(csv_file)
+                line_count = 0
+                for row in csv_reader:
+                    tempStr = ''.join(row)
+                    if tempStr.startswith('#') or len(tempStr) == 0:
+                        continue
+                    elif tempStr.startswith('CNT'):
+                        print(f'Column names are {", ".join(row)}')
+                        line_count += 1
+                    else:
+                        line_count += 1
+                        tlist = tempStr.split(";")
+                        ttlist = [float(x) for x in tlist if len(x) > 0]
+                        geo_list.append(ttlist)
+                print(f'Processed {line_count} lines in POI file.')
+                geo_list = np.array(geo_list)
